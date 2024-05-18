@@ -84,6 +84,10 @@ dependencies {
     implementation (libs.logging.interceptor)
     implementation (libs.gson)
 
+    implementation(libs.coil.compose)
+    implementation(libs.coil.gif)
+    implementation(libs.coil.svg)
+
 }
 kapt {
     correctErrorTypes = true

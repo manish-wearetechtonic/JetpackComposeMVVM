@@ -16,12 +16,7 @@ data class LoginRequestBody(
 
 interface AuthApi {
 
-//    @FormUrlEncoded
-//    @POST("auth/login")
-//    fun authApi(
-//        @Field("username") username: String,
-//        @Field("password") password: String
-//    ): Flow<UserResponse>
+
 
     @Headers("Content-Type: application/json")
     @POST("auth/login")

@@ -6,6 +6,7 @@ import com.example.jetpackmvvm.data.preference.PreferenceHelper
 import com.example.jetpackmvvm.data.repository.auth.AuthRepository
 import com.example.jetpackmvvm.data.repository.auth.AuthRepositoryImpl
 import com.example.jetpackmvvm.data.repository.products.ProductRepository
+import com.example.jetpackmvvm.data.repository.profile.ProfileRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,6 +29,12 @@ object RepositoryModule {
     @Provides
     fun provideAuthRepository(authApi: AuthApi, preferenceHelper: PreferenceHelper): AuthRepository {
         return AuthRepositoryImpl(preferenceHelper, authApi)
+    }
+
+    @Singleton
+    @Provides
+    fun provideProfileRepository(apiServices: ApiServices, preferenceHelper: PreferenceHelper) : ProfileRepository{
+       return ProfileRepository(apiServices,preferenceHelper)
     }
 
 

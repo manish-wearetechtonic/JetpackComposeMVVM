@@ -9,4 +9,6 @@ interface ProductRepositoryInterface {
 
     suspend fun getProductList() : Flow<DataState<List<Product>>>
 
+    suspend fun getProductById(productId: Int) : Flow<DataState<Product>>
+
 }

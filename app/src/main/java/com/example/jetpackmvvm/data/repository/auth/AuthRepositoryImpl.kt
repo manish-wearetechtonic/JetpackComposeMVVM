@@ -13,8 +13,7 @@ class AuthRepositoryImpl @Inject constructor(
 
     private val preferenceHelper: PreferenceHelper,
     private val api: AuthApi
-) :
-    AuthRepository {
+) : AuthRepository {
 
     @SuppressLint("SuspiciousIndentation")
     override suspend fun login(username: String, password: String): Flow<DataState<Boolean>> =
@@ -35,10 +34,7 @@ class AuthRepositoryImpl @Inject constructor(
         }
 
 
-    override suspend fun logout(): Flow<DataState<Boolean>> = flow {
-        preferenceHelper.clearPreference()
-        emit(DataState.Success(true))
-    }
+
 
     override fun isAuthenticated(): Boolean {
         return preferenceHelper.getLoggedInStatus()

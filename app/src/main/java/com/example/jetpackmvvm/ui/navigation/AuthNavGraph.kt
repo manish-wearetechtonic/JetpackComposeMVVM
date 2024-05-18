@@ -38,7 +38,15 @@ fun NavGraphBuilder.authNavGraph(
             route = AppScreen.Auth.Register.route
         ){
             SignupScreen(
-                onNavigateBack =  {navController.navigateUp()}
+                navigateToLogin = {
+                    navController.navigate(AppScreen.Auth.route) {
+                        popUpTo(AppScreen.Auth.route) {
+                            inclusive = true
+                        }
+                    }
+                },
+                onNavigateBack =  {navController.navigateUp()},
+
             )
         }
     }

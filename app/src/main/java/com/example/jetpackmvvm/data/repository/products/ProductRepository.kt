@@ -22,4 +22,16 @@ class ProductRepository @Inject constructor(
         }
     }
 
+    override suspend fun getProductById(productId: Int): Flow<DataState<Product>> = flow {
+        emit(DataState.Loading)
+
+        try {
+            val product = apiServices.getProductById(productId)
+            emit(DataState.Success(product))
+
+        }catch (e: Exception){
+            emit(DataState.Error(e))
+        }
+    }
+
 }
